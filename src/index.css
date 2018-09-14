@@ -3,3 +3,22 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.tag {
+  background-color: #CCC;
+  border-radius: 3px;
+  font-size: 9px;
+  margin: 2px;
+  padding: 5px;
+}
+
+.tag:hover {
+  cursor: pointer;
+  color: #FFF;
+}
