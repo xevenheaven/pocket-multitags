@@ -60,9 +60,11 @@ class App extends Component {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Pocket: Multitags Filter</h1>
+					<div className="App-title">Pocket: Multitags Filter</div>
 				</header>
-				<div className="tags">{tags}</div>
+				<div className="Section">
+					<div className="tags">{tags}</div>
+				</div>
 			</div>
 		);
 	}
