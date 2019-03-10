@@ -19,6 +19,11 @@
 
 .Tag:hover,
 .Tag.Selected {
+  background-color: #999;
   cursor: pointer;
   color: #FFF;
+}
+
+.Tag.Selected:hover {
+  background-color: #AAA;
 }
