@@ -19,6 +19,7 @@ class App extends Component {
 
 		this.state = {
 			fetching: true,
+			hasSelected: false,
 			tags: []
 		};
 
@@ -61,21 +62,31 @@ class App extends Component {
 	}
 
 	render() {
-		let content;
+		let content = [];
 		if (this.state.fetching) {
-			content = (
+			content.push(
 				<div className="Section"><Loader></Loader></div>
 			);
 		} else {
 			const tags = this.state.tags.map(tagname =>
 				<Tag key={tagname} name={tagname} clickTag={this.clickTag}></Tag>
 			);
-			content = (
+			content.push(
 				<div className="Sidebar">
 					<div className="Tags">{tags}</div>
 					<Filter clickFilter={this.clickFilter}></Filter>
 				</div>
 			);
+
+			if (this.state.hasSelected) {
+
+			} else {
+				content.push(
+					<div className="Main">
+						<span className="Text">Select tags to begin...</span>
+					</div>
+				);
+			}
 		}
 
 		return (
@@ -84,7 +95,7 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<div className="App-title">Pocket: Multitags Filter</div>
 				</header>
-				{content}
+				<div className="Content">{content}</div>
 			</div>
 		);
 	}

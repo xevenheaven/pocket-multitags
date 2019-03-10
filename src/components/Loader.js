@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Loader extends Component {
 	render() {
 		return (
-			<span>Fetching tags...</span>
+			<span className="Text">Fetching tags...</span>
 		);
 	}
 }

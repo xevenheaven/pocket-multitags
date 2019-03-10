@@ -23,15 +23,20 @@ body {
   color: #999999;
 }
 
-.Sidebar {
+.Content {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
   height: 100%;
-  overflow: scroll;
+  width: 100%;
+}
+
+.Sidebar {
   padding: 10px;
   width: 25%;
+}
+
+.Main {
+  padding: 15px;
+  width: 75%;
 }
 
 .App-header {
