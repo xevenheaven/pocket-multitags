@@ -17,28 +17,6 @@ body {
   background-color: #FFFFFF;
 }
 
-.Section {
-  display: block;
-  padding: 50px;
-  color: #999999;
-}
-
-.Content {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-.Sidebar {
-  padding: 10px;
-  width: 25%;
-}
-
-.Main {
-  padding: 15px;
-  width: 75%;
-}
-
 .App-header {
   padding: 20px 50px;
   color: #999999;
@@ -58,7 +36,28 @@ body {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+
+.Section {
+  display: block;
+  padding: 15px;
 }
 
+.Content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.Sidebar {
+  padding: 10px;
+  width: 25%;
+}
+
+.Main {
+  padding: 15px;
+  width: 75%;
+}
+
+.Text {
+  color: #999999;
+}
