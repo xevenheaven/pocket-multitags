@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -9,14 +13,29 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   background-color: #FFFFFF;
 }
 
 .Section {
   display: block;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 50px;
   color: #999999;
+}
+
+.Sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%;
+  overflow: scroll;
+  padding: 10px;
+  width: 25%;
+}
+
+.Sidebar::after {
+  content: "";
+  flex: auto;
 }
 
 .App-header {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from './components/Loader';
 import Tag from './components/Tag';
 import {
 	authorizeLogin,
@@ -15,6 +16,7 @@ class App extends Component {
 		super();
 
 		this.state = {
+			fetching: true,
 			tags: []
 		};
 
@@ -25,7 +27,7 @@ class App extends Component {
 		var loadTags = (token) => {
 			getTags(token).then(tags => {
 				debugger;
-				this.setState({tags: tags});
+				this.setState({fetching: false, tags: tags});
 			});
 		};
 
@@ -52,9 +54,19 @@ class App extends Component {
 	}
 
 	render() {
-		const tags = this.state.tags.map(tagname =>
-			<Tag key={tagname} name={tagname} clickTag={this.clickTag}></Tag>
-		);
+		let content;
+		if (this.state.fetching) {
+			content = (
+				<div className="Section"><Loader></Loader></div>
+			);
+		} else {
+			const tags = this.state.tags.map(tagname =>
+				<Tag key={tagname} name={tagname} clickTag={this.clickTag}></Tag>
+			);
+			content = (
+				<div className="Sidebar">{tags}</div>
+			);
+		}
 
 		return (
 			<div className="App">
@@ -62,9 +74,7 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<div className="App-title">Pocket: Multitags Filter</div>
 				</header>
-				<div className="Section">
-					<div className="tags">{tags}</div>
-				</div>
+				{content}
 			</div>
 		);
 	}
