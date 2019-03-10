@@ -19,12 +19,16 @@ class App extends Component {
 
 		this.state = {
 			fetching: true,
-			hasSelected: false,
+			filtering: false,
+			selectedTags: [],
 			tags: []
 		};
 
+		this.refs = React.createRef();
+
 		this.clickTag = this.clickTag.bind(this);
 		this.clickFilter = this.clickFilter.bind(this);
+		this.clickClear = this.clickClear.bind(this);
 	}
 
 	componentDidMount() {
@@ -55,37 +59,58 @@ class App extends Component {
 
 	clickTag(name) {
 		console.log(name);
+		this.setState(prevState => ({
+			selectedTags: [...prevState.selectedTags, name]
+		}));
 	}
 
 	clickFilter() {
 		console.log("Filtering...")
+		this.setState({filtering: true});
+	}
+
+	clickClear() {
+		console.log("Clearing filters...")
+		this.state.selectedTags.forEach(tag => {
+			this.refs[tag].setState({active: false});
+		});
+		this.setState({
+			filtering: false,
+			selectedTags: []
+		});
 	}
 
 	render() {
 		let content = [];
 		if (this.state.fetching) {
 			content.push(
-				<div className="Section"><Loader></Loader></div>
+				<div key="Section" className="Section"><Loader></Loader></div>
 			);
 		} else {
 			const tags = this.state.tags.map(tagname =>
-				<Tag key={tagname} name={tagname} clickTag={this.clickTag}></Tag>
+				<Tag key={tagname} name={tagname} ref={tagname} clickTag={this.clickTag}></Tag>
 			);
 			content.push(
-				<div className="Sidebar">
+				<div key="Sidebar" className="Sidebar">
 					<div className="Tags">{tags}</div>
-					<Filter clickFilter={this.clickFilter}></Filter>
+					<Filter clickFilter={this.clickFilter} clickClear={this.clickClear}></Filter>
 				</div>
 			);
 
-			if (this.state.hasSelected) {
-
-			} else {
+			if (!this.state.filtering) {
 				content.push(
-					<div className="Main">
-						<span className="Text">Select tags to begin...</span>
+					<div key="Main" className="Main">
+						<span className="Text">Select tags to filter...</span>
 					</div>
 				);
+			} else if (this.state.filtering && this.state.selectedTags.length > 0) {
+				content.push(
+					<div key="Main" className="Main">
+						<span className="Text">Currently filtering...</span>
+					</div>
+				);
+			} else {
+
 			}
 		}
 

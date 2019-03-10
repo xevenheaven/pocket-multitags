@@ -1,5 +1,4 @@
-.Filter {
-  background-color: #faaeb7;
+.Button {
   border-radius: 3px;
   font-size: 12px;
   margin: 6px 2px;
@@ -7,7 +6,16 @@
   text-align: center;
 }
 
-.Filter:hover {
+.Filter {
+  background-color: #faaeb7;
+}
+
+.Clear {
+  background-color: #cccccc;
+}
+
+.Filter:hover,
+.Clear:hover {
   cursor: pointer;
   color: #FFF;
 }
