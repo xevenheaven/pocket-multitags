@@ -14,7 +14,7 @@ class Tag extends Component {
 
 	render() {
 		return (
-			<span className="tag" onClick={this.clickTagHandler}>{this.props.name}</span>
+			<span className="Tag" onClick={this.clickTagHandler}>{this.props.name}</span>
 		);
 	}
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import Filter from './components/Filter';
 import Loader from './components/Loader';
 import Tag from './components/Tag';
 import {
@@ -21,6 +23,7 @@ class App extends Component {
 		};
 
 		this.clickTag = this.clickTag.bind(this);
+		this.clickFilter = this.clickFilter.bind(this);
 	}
 
 	componentDidMount() {
@@ -53,6 +56,10 @@ class App extends Component {
 		console.log(name);
 	}
 
+	clickFilter() {
+		console.log("Filtering...")
+	}
+
 	render() {
 		let content;
 		if (this.state.fetching) {
@@ -64,7 +71,10 @@ class App extends Component {
 				<Tag key={tagname} name={tagname} clickTag={this.clickTag}></Tag>
 			);
 			content = (
-				<div className="Sidebar">{tags}</div>
+				<div className="Sidebar">
+					<div className="Tags">{tags}</div>
+					<Filter clickFilter={this.clickFilter}></Filter>
+				</div>
 			);
 		}
 

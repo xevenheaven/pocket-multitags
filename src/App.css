@@ -25,17 +25,13 @@ body {
 
 .Sidebar {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   height: 100%;
   overflow: scroll;
   padding: 10px;
   width: 25%;
-}
-
-.Sidebar::after {
-  content: "";
-  flex: auto;
 }
 
 .App-header {
