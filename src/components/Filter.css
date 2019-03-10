@@ -1,0 +1,13 @@
+.Filter {
+  background-color: #faaeb7;
+  border-radius: 3px;
+  font-size: 12px;
+  margin: 6px 2px;
+  padding: 6px;
+  text-align: center;
+}
+
+.Filter:hover {
+  cursor: pointer;
+  color: #FFF;
+}
