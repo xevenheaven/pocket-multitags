@@ -1,3 +1,4 @@
+require('dotenv').config()
 const bodyParser = require('body-parser');
 const express = require('express');
 const https = require('https');
@@ -8,7 +9,7 @@ const POCKET_BASE_URL = 'getpocket.com';
 const POCKET_GET = '/v3/get';
 const POCKET_REQUEST = '/v3/oauth/request';
 
-const CONSUMER_KEY = '';
+const { CONSUMER_KEY } = process.env;
 const APP_URL = 'http://localhost:3000';
 
 const app = express();
